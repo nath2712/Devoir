@@ -1,12 +1,8 @@
 
 <?php
-
-getHeader($startSession,$title)
-
-
-getFooter()
-
-
+function getHeader() { 
+	 $startSession = session_start(); 
+	 $_SESSION['nom'] = $_POST['nom'];
 
 
 ?>
@@ -15,18 +11,20 @@ getFooter()
 
 		<head>
 			<meta charset = "UTF-8">
-			<title>Zx Td3</title>
+			<title>Ex Td3</title>
 	
 		
 		</head>
 	<body>
-    <form method="post">
+    <form method="post" action="resultat.php">
 				<label>Nom :</label>
-							<td><input type="text" name="nom" id ="nom" required placeholder="Entrez la raison pour laquelle vous voulez me contacter..."></td>
+							<td><input type="text" name="nom" id ="nom" required placeholder="Entrez votre nom"></td>
 
 			<input type="submit" value="Envoyer" id="envoyer" name="submitpost">
     </form>
 	
-	
-		</body>
-</html>
+<?php }
+function getFooter() { ?>
+    </body>
+    </html>
+<?php } ?>
