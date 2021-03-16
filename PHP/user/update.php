@@ -1,15 +1,15 @@
 <?php
-function connect(string $dbname='groups'):\PDO {#création d'une fonction de connexion
+function connect(string $dbname='groups'):\PDO {
 $dbo=null;
-try { #connexion a la BDD
-	$dbo = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8",'root','');#Ligne de commande permettant la connexion a la BDD
+try {
+	$dbo = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8",'root','');
 	$dbo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	return $dbo;
 	var_dump($dbo);
 
 
 
-}catch (\PDOException $e){#Renvoie une erreur si la connexion a la BDD a échouer 
+}catch (\PDOException $e){
 	echo $e->getMessage();
 }
 
@@ -19,7 +19,7 @@ try { #connexion a la BDD
 
 
 	
-			function getUpdateQuery($dbname, $id2,$fieldValues){ # Récupére les information sur la base de donnée afin de savoir ou et quoi modifié 
+			function getUpdateQuery($dbname, $id2,$fieldValues){
 				$res = "UPDATE '$dbname' SET"  ;
 				$parts =[];
 				foreach ($fieldValues as $key => $Value){

@@ -8,25 +8,26 @@
 <body>
 	
 <?php
-function connect(string $dbname='groups'):\PDO {#création d'une fonction de connexion
+function connect(string $dbname='groups'):\PDO {
 $dbo=null;
-try { #connexion a la BDD
-	$dbo = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8",'root','');#Ligne de commande permettant la connexion a la BDD
+try {
+	$dbo = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8",'root','');
 	$dbo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	return $dbo;
 	var_dump($dbo);
 
 
 
-}catch (\PDOException $e){#Renvoie une erreur si la connexion a la BDD a échouer 
+}catch (\PDOException $e){
 	echo $e->getMessage();
 }
 
 }	
-	$statement = connect()->query('select name,domain from Organization'); # Récupére Le nom et domaine de la liste d'information afin de les présenter sous une forme de liste
+	$statement = connect()->query('select firstname,password from user');
 
 	foreach ($statement as $row){
-		echo $row['domain'].'<br>';
+		echo $row['firstname'].'<br>';
+		echo $row['password'].'<br> <br>';
 			
 	}
 
